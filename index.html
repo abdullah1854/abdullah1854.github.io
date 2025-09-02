@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abdullah Sarfaraz - Solution Architect specializing in ERP transformation, Dynamics 365 F&O implementation, and AI adoption">
+    <meta name="keywords" content="Solution Architect, Microsoft Dynamics 365, ERP, AI, Power Platform, Microsoft Certified Trainer">
+    <meta name="author" content="Abdullah Sarfaraz">
+    
+    <title>Abdullah Sarfaraz - Solution Architect & AI Innovation Leader</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzAwNzVGRiIvPgo8dGV4dCB4PSIxNiIgeT0iMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5BPC90ZXh0Pgo8L3N2Zz4K">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #0075FF;
+            --secondary-color: #6C757D;
+            --success-color: #198754;
+            --info-color: #0DCAF0;
+            --warning-color: #FFC107;
+            --danger-color: #DC3545;
+            --light-color: #F8F9FA;
+            --dark-color: #212529;
+            --bg-color: #FFFFFF;
+            --text-color: #212529;
+            --card-bg: #FFFFFF;
+            --navbar-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            --shadow-hover: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --card-bg: #2d2d2d;
+            --navbar-bg: rgba(26, 26, 26, 0.95);
+            --light-color: #2d2d2d;
+            --dark-color: #ffffff;
+            --shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.075);
+            --shadow-hover: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+        }
+        
+        /* Remove extra whitespace */
+        section {
+            position: relative;
+        }
+        
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+        .col-lg-4, .col-md-6, .col-lg-6 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        .navbar {
+            background-color: var(--navbar-bg) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .dark-mode-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode-toggle:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .hero-section {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--light-color) 100%);
+        }
+        
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: var(--shadow-hover);
+            transition: all 0.3s ease;
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 1rem 2rem rgba(0, 117, 255, 0.3);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .animated-bio {
+            font-size: 1.2rem;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .bio-sentence {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+        
+        .bio-sentence.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--info-color));
+            border-radius: 2px;
+        }
+        
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 117, 255, 0.1);
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        
+        .project-description {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .btn-github {
+            background: linear-gradient(45deg, var(--primary-color), var(--info-color));
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-github:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 117, 255, 0.3);
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: white;
+            box-shadow: 0 0.5rem 1rem rgba(0, 117, 255, 0.3);
+        }
+        
+        .social-link.linkedin { background: #0077B5; }
+        .social-link.github { background: #333333; }
+        
+        footer {
+            background: var(--card-bg);
+            color: var(--text-color);
+            padding: 1rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(0, 117, 255, 0.1);
+        }
+        
+        .certification-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--success-color), var(--info-color));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0.25rem;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background: var(--light-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+            border: 1px solid rgba(0, 117, 255, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 70vh;
+                padding: 0.5rem 0;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .profile-photo {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 1rem;
+            }
+            
+            .animated-bio {
+                font-size: 1rem;
+                min-height: 50px;
+                margin-bottom: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .social-links {
+                margin: 1rem 0;
+            }
+        }
+        
+        .loading-animation {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-code me-2"></i>
+                Solution Architect & AI Innovation Leader
+            </a>
+            
+            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="darkModeIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start fade-in">
+                    <h1 class="hero-title">Abdullah Sarfaraz</h1>
+                    <p class="hero-tagline">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        Singapore | Assistant Manager, IT System at Goldbell Group
+                    </p>
+                    
+                    <div class="animated-bio" id="animatedBio">
+                        <div class="bio-sentence active" style="color: var(--primary-color);">
+                            Pioneering AI & ERP Innovation with over a decade of enterprise solutions experience
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <span class="certification-badge">
+                            <i class="fas fa-certificate me-1"></i>
+                            Microsoft Certified Trainer (MCT)
+                        </span>
+                        <span class="certification-badge">
+                            <i class="fas fa-award me-1"></i>
+                            MCSA: SQL 2016 BI Development
+                        </span>
+                        <span class="certification-badge">
+                            <i class="fas fa-robot me-1"></i>
+                            Copilot Studio Expert
+                        </span>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <span class="skill-tag">Dynamics 365 F&O</span>
+                        <span class="skill-tag">Microsoft Copilot</span>
+                        <span class="skill-tag">Power Platform</span>
+                        <span class="skill-tag">ERP Transformation</span>
+                        <span class="skill-tag">AI Adoption</span>
+                        <span class="skill-tag">X++</span>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/abdullah0094" class="social-link linkedin" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/abdullah1854" class="social-link github" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 text-center fade-in">
+                    <img src="Abdullah.JPG" alt="Abdullah Sarfaraz - Solution Architect" class="profile-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiByeD0iMTI1IiBmaWxsPSIjMDA3NUZGIi8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTQwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QTwvdGV4dD4KPHR0ZXh0IHg9IjEyNSIgeT0iMTkwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TYXJmYXJhejwvdGV4dD4KPC9zdmc+Cg=='">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-4">
+        <div class="container">
+            <h2 class="section-title fade-in">GitHub Projects</h2>
+            
+            <div class="row" id="projectsContainer">
+                <!-- Projects will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="mb-3">
+                        <i class="fas fa-rocket me-2"></i>
+                        Let's Connect & Innovate Together
+                    </h5>
+                    <p class="mb-3">
+                        Transforming businesses through cutting-edge AI solutions and Microsoft technologies
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/abdullah0094" class="social-link linkedin" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/abdullah1854" class="social-link github" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Projects data - easily customizable
+        const projects = [
+            {
+                name: "AI Savy Tech",
+                description: "Modern web application starter template with cutting-edge technologies. A foundation for rapid development of scalable web solutions with best practices built-in.",
+                githubUrl: "https://github.com/abdullah1854/temp-nascent-web-start"
+            },
+            {
+                name: "Town Bill Buddy",
+                description: "Smart utility bill management system designed to help residents track, manage, and optimize their municipal bills. Streamlining community financial management.",
+                githubUrl: "https://github.com/abdullah1854/town-bill-buddy"
+            },
+            {
+                name: "SmartShopper",
+                description: "Intelligent shopping companion application that helps users make informed purchasing decisions. Features price comparison, deal alerts, and smart recommendations.",
+                githubUrl: "https://github.com/abdullah1854/SmartShopper"
+            }
+        ];
+
+        // Bio sentences with different colors
+        const bioSentences = [
+            { text: "Over a decade of experience in enterprise solutions across prestigious firms including Accenture, PwC, and CGI", color: "var(--primary-color)" },
+            { text: "Microsoft Certified Trainer (MCT) since 2020, passionate about knowledge sharing and technology education", color: "var(--success-color)" },
+            { text: "Founder of AI Savvy Tech, making complex Microsoft technologies accessible to businesses worldwide", color: "var(--info-color)" },
+            { text: "Specializing in Dynamics 365 F&O implementation and ERP transformation for enterprise clients", color: "var(--warning-color)" },
+            { text: "Expert in Microsoft Copilot Studio, Power Platform, and AI adoption strategies", color: "var(--danger-color)" },
+            { text: "Multiple award winner for excellence in technology consulting and implementation", color: "#6F42C1" },
+            { text: "Currently driving digital transformation initiatives at Goldbell Group in Singapore", color: "#20C997" },
+            { text: "Combining technical expertise with business acumen to deliver scalable, enterprise-grade solutions", color: "#FD7E14" }
+        ];
+
+        let currentBioIndex = 0;
+        let bioInterval;
+
+        // Dark mode functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const body = document.body;
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            darkModeIcon.className = 'fas fa-sun';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                body.removeAttribute('data-theme');
+                darkModeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                darkModeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Animated bio functionality
+        function updateBio() {
+            const bioContainer = document.getElementById('animatedBio');
+            const currentSentence = bioContainer.querySelector('.bio-sentence');
+            
+            // Fade out current sentence
+            currentSentence.classList.remove('active');
+            
+            setTimeout(() => {
+                currentBioIndex = (currentBioIndex + 1) % bioSentences.length;
+                const nextBio = bioSentences[currentBioIndex];
+                
+                currentSentence.textContent = nextBio.text;
+                currentSentence.style.color = nextBio.color;
+                
+                // Fade in new sentence
+                currentSentence.classList.add('active');
+            }, 400);
+        }
+
+        // Start bio animation
+        function startBioAnimation() {
+            bioInterval = setInterval(updateBio, 4000);
+        }
+
+        // Generate project cards
+        function generateProjectCards() {
+            const container = document.getElementById('projectsContainer');
+            
+            projects.forEach((project, index) => {
+                const projectCard = `
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card fade-in" style="animation-delay: ${index * 0.2}s;">
+                            <div class="project-title">
+                                <i class="fas fa-code-branch me-2"></i>
+                                ${project.name}
+                            </div>
+                            <div class="project-description">
+                                ${project.description}
+                            </div>
+                            <a href="${project.githubUrl}" class="btn-github" target="_blank">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += projectCard;
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Smooth scrolling for navbar links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            generateProjectCards();
+            startBioAnimation();
+            
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Add loading animation to project cards initially
+            setTimeout(() => {
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                });
+                
+                // Animate them in sequence
+                document.querySelectorAll('.project-card').forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.transition = 'all 0.6s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 200);
+                });
+            }, 100);
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backdropFilter = 'blur(15px)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.backdropFilter = 'blur(10px)';
+                navbar.style.boxShadow = 'var(--shadow)';
+            }
+        });
+
+        // Enhanced error handling for profile photo
+        document.querySelector('.profile-photo').addEventListener('error', function() {
+            this.style.background = 'linear-gradient(135deg, var(--primary-color), var(--info-color))';
+            this.style.display = 'flex';
+            this.style.alignItems = 'center';
+            this.style.justifyContent = 'center';
+            this.style.fontSize = '4rem';
+            this.style.fontWeight = 'bold';
+            this.style.color = 'white';
+            this.innerHTML = '<div><i class="fas fa-user-tie"></i><br><small style="font-size: 1rem;">Abdullah</small></div>';
+        });
+
+        // Add some interactive features
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                    card.style.transform = `perspective(1000px) rotateX(${(y - rect.height / 2) / 20}deg) rotateY(${(x - rect.width / 2) / 20}deg) translateY(-10px)`;
+                } else {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                }
+            });
+        });
+
+        // Performance optimization: Debounce scroll events
+        let ticking = false;
+        function updateScrollEffects() {
+            // Add any scroll-based effects here
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+</html>
