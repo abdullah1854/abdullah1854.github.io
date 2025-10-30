@@ -88,14 +88,52 @@
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
+            padding: 1rem 0;
         }
-        
+
         .navbar-brand {
             font-weight: 600;
             font-size: 1.5rem;
             color: var(--primary-color) !important;
         }
-        
+
+        .navbar-toggler {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 117, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
         .dark-mode-toggle {
             background: none;
             border: 2px solid var(--primary-color);
@@ -108,7 +146,7 @@
             justify-content: center;
             transition: all 0.3s ease;
         }
-        
+
         .dark-mode-toggle:hover {
             background-color: var(--primary-color);
             color: white;
@@ -147,32 +185,11 @@
         
         .hero-tagline {
             font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-        
-        .animated-bio {
-            font-size: 1.2rem;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
+            color: var(--primary-color);
             margin-bottom: 1rem;
+            font-weight: 600;
         }
-        
-        .bio-sentence {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-            font-weight: 500;
-            line-height: 1.8;
-        }
-        
-        .bio-sentence.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
+
         .section-title {
             font-size: 2.5rem;
             font-weight: 600;
@@ -302,43 +319,144 @@
             font-size: 0.9rem;
             margin: 0.25rem;
             border: 1px solid rgba(0, 117, 255, 0.2);
+            transition: all 0.3s ease;
         }
-        
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 4px solid var(--bg-color);
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: linear-gradient(to bottom, var(--primary-color), transparent);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 117, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
         @media (max-width: 768px) {
             .hero-section {
-                min-height: 70vh;
-                padding: 0.5rem 0;
+                min-height: auto;
+                padding: 6rem 0 2rem;
             }
-            
+
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
                 margin-bottom: 0.75rem;
             }
-            
+
             .hero-tagline {
                 font-size: 1.2rem;
-                margin-bottom: 1rem;
+                margin-bottom: 0.75rem;
             }
-            
+
             .profile-photo {
-                width: 200px;
-                height: 200px;
-                margin-bottom: 1rem;
+                width: 180px;
+                height: 180px;
+                margin-bottom: 1.5rem;
             }
-            
-            .animated-bio {
-                font-size: 1rem;
-                min-height: 50px;
-                margin-bottom: 1rem;
-            }
-            
+
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
                 margin-bottom: 2rem;
             }
-            
+
+            .section-title::after {
+                width: 60px;
+            }
+
             .social-links {
                 margin: 1rem 0;
+            }
+
+            .project-title {
+                font-size: 1.3rem;
+            }
+
+            .nav-link {
+                margin: 0.25rem 0;
+                padding: 0.5rem 0;
+            }
+
+            .timeline-item {
+                padding-left: 30px;
+            }
+
+            .timeline-item::before {
+                width: 16px;
+                height: 16px;
+                border: 3px solid var(--bg-color);
+            }
+
+            .timeline-item::after {
+                left: 7px;
+            }
+
+            .project-card {
+                padding: 1rem;
+            }
+
+            .skill-tag {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
             }
         }
         
@@ -372,12 +490,26 @@
         <div class="container">
             <a class="navbar-brand" href="#home">
                 <i class="fas fa-code me-2"></i>
-                Solution Architect & AI Innovation Leader
+                Abdullah Sarfaraz
             </a>
-            
-            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon" id="darkModeIcon"></i>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <button class="dark-mode-toggle ms-3" id="darkModeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="darkModeIcon"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -387,53 +519,262 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 text-center text-lg-start fade-in">
                     <h1 class="hero-title">Abdullah Sarfaraz</h1>
-                    <p class="hero-tagline">
+                    <p class="hero-tagline">Solution Architect & AI Innovation Leader</p>
+                    <p class="mb-4" style="font-size: 1.1rem;">
                         <i class="fas fa-map-marker-alt me-2"></i>
                         Singapore | Assistant Manager, IT System at Goldbell Group
                     </p>
-                    
-                    <div class="animated-bio" id="animatedBio">
-                        <div class="bio-sentence active" style="color: var(--primary-color);">
-                            Pioneering AI & ERP Innovation with over a decade of enterprise solutions experience
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <span class="certification-badge">
-                            <i class="fas fa-certificate me-1"></i>
-                            Microsoft Certified Trainer (MCT)
-                        </span>
-                        <span class="certification-badge">
-                            <i class="fas fa-award me-1"></i>
-                            MCSA: SQL 2016 BI Development
-                        </span>
-                        <span class="certification-badge">
-                            <i class="fas fa-robot me-1"></i>
-                            Copilot Studio Expert
-                        </span>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <span class="skill-tag">Dynamics 365 F&O</span>
-                        <span class="skill-tag">Microsoft Copilot</span>
-                        <span class="skill-tag">Power Platform</span>
-                        <span class="skill-tag">ERP Transformation</span>
-                        <span class="skill-tag">AI Adoption</span>
-                        <span class="skill-tag">X++</span>
-                    </div>
-                    
-                    <div class="social-links">
+
+                    <div class="social-links justify-content-center justify-content-lg-start">
                         <a href="https://www.linkedin.com/in/abdullah0094" class="social-link linkedin" target="_blank" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="https://github.com/abdullah1854" class="social-link github" target="_blank" aria-label="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
+                        <a href="mailto:abdullah.sarfaraz@example.com" class="social-link" style="background: #EA4335;" target="_blank" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6 text-center fade-in">
                     <img src="Abdullah.JPG" alt="Abdullah Sarfaraz - Solution Architect" class="profile-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiByeD0iMTI1IiBmaWxsPSIjMDA3NUZGIi8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTQwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QTwvdGV4dD4KPHR0ZXh0IHg9IjEyNSIgeT0iMTkwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TYXJmYXJhejwvdGV4dD4KPC9zdmc+Cg=='">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="project-card">
+                        <p style="font-size: 1.1rem; line-height: 1.8; text-align: justify;">
+                            Solution Architect with over a decade of experience in enterprise solutions, specializing in Microsoft Dynamics 365 F&O implementation and AI adoption strategies. As a Microsoft Certified Trainer since 2020 and founder of AI Savvy Tech, I'm passionate about making complex technologies accessible to businesses worldwide.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; text-align: justify;">
+                            Throughout my career with prestigious firms including Accenture, PwC, and CGI, I've led numerous ERP transformation projects, combining technical expertise with business acumen to deliver scalable, enterprise-grade solutions. Currently driving digital transformation initiatives at Goldbell Group in Singapore.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5" style="background: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3 class="project-title">Assistant Manager, IT System</h3>
+                                <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-building me-2"></i>Goldbell Group | Singapore
+                                </p>
+                                <p style="color: var(--secondary-color); margin-bottom: 1rem;">
+                                    <i class="far fa-calendar me-2"></i>Current Position
+                                </p>
+                                <p>Leading digital transformation initiatives and managing enterprise IT systems. Driving AI adoption strategies and overseeing Dynamics 365 implementation projects.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3 class="project-title">Founder & Technology Consultant</h3>
+                                <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-building me-2"></i>AI Savvy Tech
+                                </p>
+                                <p style="color: var(--secondary-color); margin-bottom: 1rem;">
+                                    <i class="far fa-calendar me-2"></i>2020 - Present
+                                </p>
+                                <p>Making Microsoft technologies accessible through training and consulting. Specializing in Copilot Studio, Power Platform, and Microsoft 365 solutions.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3 class="project-title">Solution Architect & Consultant</h3>
+                                <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">
+                                    <i class="fas fa-building me-2"></i>Accenture, PwC, CGI
+                                </p>
+                                <p style="color: var(--secondary-color); margin-bottom: 1rem;">
+                                    <i class="far fa-calendar me-2"></i>2012 - 2023
+                                </p>
+                                <p>Led enterprise-scale ERP transformation projects across multiple industries. Implemented Dynamics 365 F&O solutions and provided technical leadership for complex integration projects. Multiple award winner for excellence in technology consulting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <h3 class="project-title" style="font-size: 1.3rem;">
+                            <i class="fas fa-cogs me-2" style="color: var(--primary-color);"></i>
+                            ERP & Enterprise Solutions
+                        </h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Dynamics 365 F&O</span>
+                            <span class="skill-tag">X++</span>
+                            <span class="skill-tag">ERP Implementation</span>
+                            <span class="skill-tag">Business Process Analysis</span>
+                            <span class="skill-tag">System Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <h3 class="project-title" style="font-size: 1.3rem;">
+                            <i class="fas fa-robot me-2" style="color: var(--info-color);"></i>
+                            AI & Automation
+                        </h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Microsoft Copilot Studio</span>
+                            <span class="skill-tag">Power Platform</span>
+                            <span class="skill-tag">Power Automate</span>
+                            <span class="skill-tag">AI Adoption Strategy</span>
+                            <span class="skill-tag">Process Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <h3 class="project-title" style="font-size: 1.3rem;">
+                            <i class="fas fa-database me-2" style="color: var(--success-color);"></i>
+                            Data & Analytics
+                        </h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">SQL Server</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Data Warehousing</span>
+                            <span class="skill-tag">ETL/SSIS</span>
+                            <span class="skill-tag">Business Intelligence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <h3 class="project-title" style="font-size: 1.3rem;">
+                            <i class="fas fa-cloud me-2" style="color: var(--warning-color);"></i>
+                            Cloud Technologies
+                        </h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Microsoft Azure</span>
+                            <span class="skill-tag">Azure DevOps</span>
+                            <span class="skill-tag">Cloud Architecture</span>
+                            <span class="skill-tag">Microsoft 365</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <h3 class="project-title" style="font-size: 1.3rem;">
+                            <i class="fas fa-project-diagram me-2" style="color: var(--danger-color);"></i>
+                            Project Management
+                        </h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Agile Methodology</span>
+                            <span class="skill-tag">Team Leadership</span>
+                            <span class="skill-tag">Stakeholder Management</span>
+                            <span class="skill-tag">Solution Architecture</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <h3 class="project-title" style="font-size: 1.3rem;">
+                            <i class="fas fa-chalkboard-teacher me-2" style="color: #6F42C1;"></i>
+                            Training & Education
+                        </h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Technical Training</span>
+                            <span class="skill-tag">Workshop Facilitation</span>
+                            <span class="skill-tag">Knowledge Transfer</span>
+                            <span class="skill-tag">Mentoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-5" style="background: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title">Certifications & Awards</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="project-card">
+                                <h3 class="project-title" style="font-size: 1.2rem;">
+                                    <i class="fas fa-certificate me-2" style="color: var(--primary-color);"></i>
+                                    Microsoft Certified Trainer (MCT)
+                                </h3>
+                                <p style="color: var(--secondary-color);">
+                                    <i class="far fa-calendar me-2"></i>Since 2020
+                                </p>
+                                <p>Authorized to deliver official Microsoft training courses and workshops on various Microsoft technologies and platforms.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="project-card">
+                                <h3 class="project-title" style="font-size: 1.2rem;">
+                                    <i class="fas fa-award me-2" style="color: var(--success-color);"></i>
+                                    MCSA: SQL 2016 BI Development
+                                </h3>
+                                <p style="color: var(--secondary-color);">
+                                    <i class="fas fa-database me-2"></i>Microsoft Certified
+                                </p>
+                                <p>Expertise in SQL Server 2016 Business Intelligence development, data warehousing, and analytics solutions.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="project-card">
+                                <h3 class="project-title" style="font-size: 1.2rem;">
+                                    <i class="fas fa-robot me-2" style="color: var(--info-color);"></i>
+                                    Copilot Studio Expert
+                                </h3>
+                                <p style="color: var(--secondary-color);">
+                                    <i class="fas fa-star me-2"></i>Subject Matter Expert
+                                </p>
+                                <p>Specialized in building intelligent conversational AI solutions using Microsoft Copilot Studio and Power Virtual Agents.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+                            <div class="project-card">
+                                <h3 class="project-title" style="font-size: 1.2rem;">
+                                    <i class="fas fa-trophy me-2" style="color: var(--warning-color);"></i>
+                                    Multiple Excellence Awards
+                                </h3>
+                                <p style="color: var(--secondary-color);">
+                                    <i class="fas fa-medal me-2"></i>Industry Recognition
+                                </p>
+                                <p>Recognized for outstanding contributions in technology consulting, implementation excellence, and innovation.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -450,29 +791,56 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-12">
-                    <h5 class="mb-3">
-                        <i class="fas fa-rocket me-2"></i>
-                        Let's Connect & Innovate Together
-                    </h5>
-                    <p class="mb-3">
-                        Transforming businesses through cutting-edge AI solutions and Microsoft technologies
-                    </p>
-                    
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/abdullah0094" class="social-link linkedin" target="_blank" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/abdullah1854" class="social-link github" target="_blank" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
+    <!-- Contact Section -->
+    <section id="contact" class="py-5" style="background: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="project-card text-center">
+                        <h3 class="project-title" style="font-size: 1.5rem; margin-bottom: 1rem;">
+                            <i class="fas fa-rocket me-2"></i>
+                            Let's Connect & Innovate Together
+                        </h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                            Transforming businesses through cutting-edge AI solutions and Microsoft technologies
+                        </p>
+
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/abdullah0094" class="social-link linkedin" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/abdullah1854" class="social-link github" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:abdullah.sarfaraz@example.com" class="social-link" style="background: #EA4335;" target="_blank" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+
+                        <div class="mt-4">
+                            <p style="color: var(--secondary-color); margin-bottom: 0.5rem;">
+                                <i class="fas fa-map-marker-alt me-2"></i>
+                                Based in Singapore
+                            </p>
+                            <p style="color: var(--secondary-color);">
+                                <i class="fas fa-briefcase me-2"></i>
+                                Open to consulting and collaboration opportunities
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p style="margin-bottom: 0.5rem;">&copy; 2025 Abdullah Sarfaraz. All rights reserved.</p>
+            <p style="font-size: 0.9rem; color: var(--secondary-color);">
+                Solution Architect & AI Innovation Leader
+            </p>
         </div>
     </footer>
 
@@ -483,7 +851,7 @@
         // Projects data - easily customizable
         const projects = [
             {
-                name: "AI Savy Tech",
+                name: "AI Savvy Tech",
                 description: "Modern web application starter template with cutting-edge technologies. A foundation for rapid development of scalable web solutions with best practices built-in.",
                 githubUrl: "https://github.com/abdullah1854/temp-nascent-web-start"
             },
@@ -499,21 +867,6 @@
             }
         ];
 
-        // Bio sentences with different colors
-        const bioSentences = [
-            { text: "Over a decade of experience in enterprise solutions across prestigious firms including Accenture, PwC, and CGI", color: "var(--primary-color)" },
-            { text: "Microsoft Certified Trainer (MCT) since 2020, passionate about knowledge sharing and technology education", color: "var(--success-color)" },
-            { text: "Founder of AI Savvy Tech, making complex Microsoft technologies accessible to businesses worldwide", color: "var(--info-color)" },
-            { text: "Specializing in Dynamics 365 F&O implementation and ERP transformation for enterprise clients", color: "var(--warning-color)" },
-            { text: "Expert in Microsoft Copilot Studio, Power Platform, and AI adoption strategies", color: "var(--danger-color)" },
-            { text: "Multiple award winner for excellence in technology consulting and implementation", color: "#6F42C1" },
-            { text: "Currently driving digital transformation initiatives at Goldbell Group in Singapore", color: "#20C997" },
-            { text: "Combining technical expertise with business acumen to deliver scalable, enterprise-grade solutions", color: "#FD7E14" }
-        ];
-
-        let currentBioIndex = 0;
-        let bioInterval;
-
         // Dark mode functionality
         const darkModeToggle = document.getElementById('darkModeToggle');
         const darkModeIcon = document.getElementById('darkModeIcon');
@@ -528,7 +881,7 @@
 
         darkModeToggle.addEventListener('click', () => {
             const currentTheme = body.getAttribute('data-theme');
-            
+
             if (currentTheme === 'dark') {
                 body.removeAttribute('data-theme');
                 darkModeIcon.className = 'fas fa-moon';
@@ -539,31 +892,6 @@
                 localStorage.setItem('theme', 'dark');
             }
         });
-
-        // Animated bio functionality
-        function updateBio() {
-            const bioContainer = document.getElementById('animatedBio');
-            const currentSentence = bioContainer.querySelector('.bio-sentence');
-            
-            // Fade out current sentence
-            currentSentence.classList.remove('active');
-            
-            setTimeout(() => {
-                currentBioIndex = (currentBioIndex + 1) % bioSentences.length;
-                const nextBio = bioSentences[currentBioIndex];
-                
-                currentSentence.textContent = nextBio.text;
-                currentSentence.style.color = nextBio.color;
-                
-                // Fade in new sentence
-                currentSentence.classList.add('active');
-            }, 400);
-        }
-
-        // Start bio animation
-        function startBioAnimation() {
-            bioInterval = setInterval(updateBio, 4000);
-        }
 
         // Generate project cards
         function generateProjectCards() {
@@ -622,22 +950,32 @@
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             generateProjectCards();
-            startBioAnimation();
-            
+
             // Observe all fade-in elements
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
             });
-            
+
+            // Add smooth scroll to navbar links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                });
+            });
+
             // Add loading animation to project cards initially
             setTimeout(() => {
-                document.querySelectorAll('.project-card').forEach(card => {
+                document.querySelectorAll('#projectsContainer .project-card').forEach(card => {
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(30px)';
                 });
-                
+
                 // Animate them in sequence
-                document.querySelectorAll('.project-card').forEach((card, index) => {
+                document.querySelectorAll('#projectsContainer .project-card').forEach((card, index) => {
                     setTimeout(() => {
                         card.style.transition = 'all 0.6s ease';
                         card.style.opacity = '1';
@@ -669,36 +1007,6 @@
             this.style.fontWeight = 'bold';
             this.style.color = 'white';
             this.innerHTML = '<div><i class="fas fa-user-tie"></i><br><small style="font-size: 1rem;">Abdullah</small></div>';
-        });
-
-        // Add some interactive features
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.project-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-                    card.style.transform = `perspective(1000px) rotateX(${(y - rect.height / 2) / 20}deg) rotateY(${(x - rect.width / 2) / 20}deg) translateY(-10px)`;
-                } else {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-                }
-            });
-        });
-
-        // Performance optimization: Debounce scroll events
-        let ticking = false;
-        function updateScrollEffects() {
-            // Add any scroll-based effects here
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateScrollEffects);
-                ticking = true;
-            }
         });
     </script>
 </body>
