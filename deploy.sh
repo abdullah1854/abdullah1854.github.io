@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# Deployment script for React CV website
-# This script builds the React app and prepares it for GitHub Pages
+# Deployment script for React CV website to GitHub Pages
+# This script builds the React app and prepares it for GitHub Pages deployment
+
+set -e  # Exit on error
 
 echo "🚀 Starting deployment process..."
 
@@ -24,12 +26,22 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "✅ Build completed successfully!"
-echo "📁 Built files are in the dist/ directory"
 echo ""
-echo "Next steps:"
-echo "1. The dist/ folder contains your production-ready website"
-echo "2. You can preview it locally with: npm run preview"
-echo "3. To deploy to GitHub Pages, commit and push the changes"
+echo "📋 Next steps for GitHub Pages deployment:"
 echo ""
-echo "Note: For GitHub Pages to work with React Router (if added later),"
-echo "you may need to configure a 404.html redirect or use HashRouter."
+echo "OPTION 1: Use GitHub Actions (Recommended - Automatic)"
+echo "  1. Commit and push the .github/workflows/deploy.yml file"
+echo "  2. Go to repository Settings > Pages"
+echo "  3. Under 'Source', select 'GitHub Actions'"
+echo "  4. Push to main branch - deployment will happen automatically"
+echo ""
+echo "OPTION 2: Manual deployment (if GitHub Actions not available)"
+echo "  1. Copy dist/ contents to root directory"
+echo "  2. Commit and push to main branch"
+echo "  3. GitHub Pages will serve from root"
+echo ""
+echo "⚠️  IMPORTANT: Make sure GitHub Pages is configured correctly:"
+echo "  - Repository Settings > Pages"
+echo "  - Source: GitHub Actions (if using Option 1)"
+echo "  - OR Source: Deploy from branch 'main' / (root) (if using Option 2)"
+echo ""
