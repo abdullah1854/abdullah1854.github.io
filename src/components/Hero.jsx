@@ -86,6 +86,19 @@ const Hero = () => {
                 <i className="fas fa-paper-plane"></i>
                 Get In Touch
               </a>
+              <button
+                onClick={() => {
+                  // Generate CV download - you can link to actual PDF later
+                  const link = document.createElement('a');
+                  link.href = '/Abdullah_Sarfaraz_CV.pdf'; // Replace with actual CV file
+                  link.download = 'Abdullah_Sarfaraz_CV.pdf';
+                  link.click();
+                }}
+                className="btn-secondary group"
+              >
+                <i className="fas fa-download group-hover:animate-bounce"></i>
+                Download CV
+              </button>
               <a href="#experience" className="btn-secondary">
                 <i className="fas fa-briefcase"></i>
                 View Experience

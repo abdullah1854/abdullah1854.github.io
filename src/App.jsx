@@ -1,10 +1,13 @@
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
+import Stats from './components/Stats';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Certifications from './components/Certifications';
 import Projects from './components/Projects';
+import Testimonials from './components/Testimonials';
+import Blog from './components/Blog';
 import Contact from './components/Contact';
 
 function App() {
@@ -15,10 +18,13 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Stats />
         <Experience />
         <Skills />
         <Certifications />
         <Projects />
+        <Testimonials />
+        <Blog />
         <Contact />
       </main>
 
@@ -30,6 +36,14 @@ function App() {
           <p className="text-sm text-gray-500 dark:text-gray-500">
             Solution Architect & AI Innovation Leader
           </p>
+          <div className="flex justify-center gap-4 mt-4">
+            <a href="https://www.linkedin.com/in/abdullah0094" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary-500 transition-colors">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/abdullah1854" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary-500 transition-colors">
+              <i className="fab fa-github"></i>
+            </a>
+          </div>
         </div>
       </footer>
     </div>
