@@ -43,7 +43,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-20 section-padding">
+    <section id="home" className="min-h-[90vh] flex items-center justify-center pt-16">
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
@@ -52,9 +52,9 @@ const Hero = () => {
           className="grid lg:grid-cols-2 gap-12 items-center"
         >
           {/* Left Column - Content */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             <motion.div variants={itemVariants}>
-              <span className="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 rounded-full text-sm font-medium mb-1">
                 <i className="fas fa-map-marker-alt mr-2"></i>
                 Based in Singapore
               </span>
@@ -81,7 +81,7 @@ const Hero = () => {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-3">
               <a href="#contact" className="btn-primary">
                 <i className="fas fa-paper-plane"></i>
                 Get In Touch
@@ -106,7 +106,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Social Links */}
-            <motion.div variants={itemVariants} className="flex gap-4 pt-4">
+            <motion.div variants={itemVariants} className="flex gap-3 pt-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}

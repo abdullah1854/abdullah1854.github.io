@@ -28,7 +28,7 @@ function App() {
         <Contact />
       </main>
 
-      <footer className="bg-gray-50 dark:bg-dark-card border-t border-gray-200 dark:border-dark-border py-8">
+      <footer className="bg-gray-50 dark:bg-dark-card border-t border-gray-200 dark:border-dark-border py-6">
         <div className="container-custom text-center">
           <p className="text-gray-600 dark:text-gray-400 mb-2">
             © 2025 Abdullah Sarfaraz. All rights reserved.

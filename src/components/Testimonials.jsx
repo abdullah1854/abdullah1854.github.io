@@ -54,12 +54,12 @@ const Testimonials = () => {
       <div className="container-custom">
         <motion.div ref={ref}>
           {/* Section Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="heading-2 mb-4"
+              className="heading-2 mb-3"
             >
               Client Testimonials & Recognition
             </motion.h2>
@@ -73,34 +73,34 @@ const Testimonials = () => {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+              className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
             >
               Trusted by leading organizations for ERP transformation and AI innovation
             </motion.p>
           </div>
 
           {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="card p-6 card-hover"
+                className="card p-5 card-hover"
               >
                 {/* Quote Icon */}
-                <div className="text-primary-500 mb-4">
-                  <i className="fas fa-quote-left text-3xl opacity-20"></i>
+                <div className="text-primary-500 mb-3">
+                  <i className="fas fa-quote-left text-2xl opacity-20"></i>
                 </div>
 
                 {/* Quote */}
-                <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
                   {testimonial.quote}
                 </p>
 
                 {/* Rating */}
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-3">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <i key={i} className="fas fa-star text-yellow-400 text-sm"></i>
                   ))}
@@ -136,10 +136,10 @@ const Testimonials = () => {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="text-center"
           >
-            <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+            <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
               Trusted by Industry Leaders
             </h3>
-            <div className="flex flex-wrap justify-center items-center gap-6">
+            <div className="flex flex-wrap justify-center items-center gap-4">
               {companyLogos.map((company, index) => (
                 <motion.img
                   key={index}

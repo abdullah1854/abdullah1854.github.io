@@ -44,21 +44,21 @@ const Certifications = () => {
     <section id="certifications" className="section-padding">
       <div className="container-custom">
         <motion.div ref={ref}>
-          <div className="text-center mb-12">
-            <h2 className="heading-2 mb-4">Certifications & Awards</h2>
+          <div className="text-center mb-8">
+            <h2 className="heading-2 mb-3">Certifications & Awards</h2>
             <div className="w-16 h-1 bg-primary-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-4">
             {certifications.map((cert, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="card p-6 card-hover"
+                className="card p-5 card-hover"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-3">
                   <div className={`text-3xl ${cert.color} flex-shrink-0`}>
                     <i className={cert.icon}></i>
                   </div>

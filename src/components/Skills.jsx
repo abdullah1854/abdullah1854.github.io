@@ -54,24 +54,24 @@ const Skills = () => {
     <section id="skills" className="section-padding section-bg">
       <div className="container-custom">
         <motion.div ref={ref}>
-          <div className="text-center mb-12">
-            <h2 className="heading-2 mb-4">Skills & Expertise</h2>
+          <div className="text-center mb-8">
+            <h2 className="heading-2 mb-3">Skills & Expertise</h2>
             <div className="w-16 h-1 bg-primary-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {skillCategories.map((category, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="card p-6 card-hover"
+                className="card p-5 card-hover"
               >
-                <div className={`w-14 h-14 ${category.bgColor} rounded-lg flex items-center justify-center mb-4`}>
-                  <i className={`${category.icon} text-2xl ${category.color}`}></i>
+                <div className={`w-12 h-12 ${category.bgColor} rounded-lg flex items-center justify-center mb-3`}>
+                  <i className={`${category.icon} text-xl ${category.color}`}></i>
                 </div>
-                <h3 className="heading-4 text-lg mb-4">{category.title}</h3>
+                <h3 className="heading-4 text-lg mb-3">{category.title}</h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, i) => (
                     <span key={i} className="badge text-xs">

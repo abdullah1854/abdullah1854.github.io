@@ -35,12 +35,12 @@ const About = () => {
           animate={isInView ? 'visible' : 'hidden'}
           className="max-w-4xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="text-center mb-12">
+          <motion.div variants={itemVariants} className="text-center mb-10">
             <h2 className="heading-2 mb-4">About Me</h2>
-            <div className="w-16 h-1 bg-primary-500 mx-auto rounded-full"></div>
+            <div className="w-20 h-1 bg-primary-500 mx-auto rounded-full"></div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="card p-8 space-y-6">
+          <motion.div variants={itemVariants} className="card p-6 space-y-4">
             <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
               Solution Architect and AI Innovation Leader with over{' '}
               <span className="font-semibold text-primary-500">8 years of specialized experience</span> in
@@ -70,7 +70,7 @@ const About = () => {
             </p>
 
             {/* Key Highlights */}
-            <div className="grid md:grid-cols-3 gap-6 pt-6 border-t border-gray-200 dark:border-dark-border">
+            <div className="grid md:grid-cols-3 gap-4 pt-4 border-t border-gray-200 dark:border-dark-border">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary-500 mb-2">8+</div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>

@@ -72,26 +72,26 @@ const Projects = () => {
     <section id="projects" className="section-padding section-bg">
       <div className="container-custom">
         <motion.div ref={ref}>
-          <div className="text-center mb-12">
-            <h2 className="heading-2 mb-4">Featured Projects & Solutions</h2>
+          <div className="text-center mb-8">
+            <h2 className="heading-2 mb-3">Featured Projects & Solutions</h2>
             <div className="w-16 h-1 bg-primary-500 mx-auto rounded-full"></div>
-            <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Real-world implementations delivering measurable business impact
             </p>
           </div>
 
           {/* Featured Projects */}
-          <div className="max-w-6xl mx-auto space-y-6 mb-12">
+          <div className="max-w-6xl mx-auto space-y-4 mb-8">
             {projects.filter(p => p.featured).map((project, index) => (
               <motion.article
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="card p-8 card-hover group"
+                className="card p-6 card-hover group"
               >
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="md:col-span-2 space-y-4">
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="md:col-span-2 space-y-3">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                         <i className="fas fa-rocket text-white text-xl"></i>
@@ -120,8 +120,8 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col justify-center space-y-4">
-                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-lg text-center">
+                  <div className="flex flex-col justify-center space-y-3">
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-4 rounded-lg text-center">
                       <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
                         {project.impact}
                       </div>
@@ -148,16 +148,16 @@ const Projects = () => {
           </div>
 
           {/* Other Projects Grid */}
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {projects.filter(p => !p.featured).map((project, index) => (
               <motion.article
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-                className="card p-6 card-hover flex flex-col group"
+                className="card p-5 card-hover flex flex-col group"
               >
-                <div className="flex items-start gap-3 mb-4">
+                <div className="flex items-start gap-3 mb-3">
                   <div className="w-10 h-10 bg-primary-50 dark:bg-primary-900/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <i className="fas fa-code-branch text-primary-500"></i>
                   </div>
@@ -167,11 +167,11 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4 flex-1 leading-relaxed">
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-3 flex-1 leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-3">
                   {project.techStack.map((tech, i) => (
                     <span key={i} className="badge text-xs">
                       {tech}

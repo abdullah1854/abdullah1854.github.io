@@ -68,12 +68,12 @@ const Blog = () => {
       <div className="container-custom">
         <motion.div ref={ref}>
           {/* Section Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="heading-2 mb-4"
+              className="heading-2 mb-3"
             >
               Insights & Articles
             </motion.h2>
@@ -87,7 +87,7 @@ const Blog = () => {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+              className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
             >
               Sharing knowledge on ERP transformation, AI adoption, and digital innovation
             </motion.p>
@@ -100,7 +100,7 @@ const Blog = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="card overflow-hidden mb-8 card-hover group"
+              className="card overflow-hidden mb-6 card-hover group"
             >
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="relative overflow-hidden h-64 md:h-auto">
@@ -115,8 +115,8 @@ const Blog = () => {
                     </span>
                   </div>
                 </div>
-                <div className="p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
+                <div className="p-6 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-3">
                     <span className="px-3 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 rounded-full text-xs font-medium">
                       {article.category}
                     </span>
@@ -127,13 +127,13 @@ const Blog = () => {
                       {article.readTime}
                     </span>
                   </div>
-                  <h3 className="heading-3 mb-4 group-hover:text-primary-500 transition-colors">
+                  <h3 className="heading-3 mb-3 group-hover:text-primary-500 transition-colors">
                     {article.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-6">
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
                     {article.excerpt}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {article.tags.map((tag, i) => (
                       <span
                         key={i}
@@ -152,7 +152,7 @@ const Blog = () => {
           ))}
 
           {/* Articles Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {articles.filter(a => !a.featured).map((article, index) => (
               <motion.article
                 key={index}
@@ -173,8 +173,8 @@ const Blog = () => {
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mb-3">
+                <div className="p-5">
+                  <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-2">
                     <span>{article.date}</span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
@@ -182,13 +182,13 @@ const Blog = () => {
                       {article.readTime}
                     </span>
                   </div>
-                  <h3 className="heading-4 mb-3 group-hover:text-primary-500 transition-colors line-clamp-2">
+                  <h3 className="heading-4 mb-2 group-hover:text-primary-500 transition-colors line-clamp-2">
                     {article.title}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-3">
                     {article.excerpt}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-3">
                     {article.tags.slice(0, 2).map((tag, i) => (
                       <span
                         key={i}
@@ -211,9 +211,9 @@ const Blog = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.5 }}
-            className="text-center mt-12"
+            className="text-center mt-8"
           >
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-gray-600 dark:text-gray-400 mb-3">
               Want to stay updated with the latest insights?
             </p>
             <button className="btn-secondary">

@@ -82,12 +82,12 @@ const Stats = () => {
       <div className="container-custom">
         <motion.div ref={ref}>
           {/* Section Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="heading-2 mb-4"
+              className="heading-2 mb-3"
             >
               Impact & Achievements
             </motion.h2>
@@ -100,20 +100,20 @@ const Stats = () => {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="card p-6 text-center card-hover group"
+                className="card p-5 text-center card-hover group"
               >
                 {/* Icon */}
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  className={`${stat.color} text-4xl mb-4 inline-block`}
+                  className={`${stat.color} text-3xl mb-3 inline-block`}
                 >
                   <i className={stat.icon}></i>
                 </motion.div>
@@ -143,7 +143,7 @@ const Stats = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="mt-12 grid md:grid-cols-3 gap-6"
+            className="mt-8 grid md:grid-cols-3 gap-4"
           >
             <div className="flex items-center gap-4 p-4 bg-white dark:bg-dark-card rounded-lg shadow-sm">
               <div className="text-primary-500 text-3xl">

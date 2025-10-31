@@ -66,21 +66,21 @@ const Contact = () => {
     <section id="contact" className="section-padding">
       <div className="container-custom">
         <motion.div ref={ref}>
-          <div className="text-center mb-12">
-            <h2 className="heading-2 mb-4">Get In Touch</h2>
+          <div className="text-center mb-8">
+            <h2 className="heading-2 mb-3">Get In Touch</h2>
             <div className="w-16 h-1 bg-primary-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {/* Left Column - Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="card p-8"
+              className="card p-6"
             >
-              <h3 className="heading-3 mb-4">Send a Message</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
+              <h3 className="heading-3 mb-3">Send a Message</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
                 Interested in collaboration? Fill out the form and I'll get back to you within 24 hours.
               </p>
 
@@ -191,20 +191,20 @@ const Contact = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-4"
             >
-              <div className="card p-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-50 dark:bg-primary-900/20 rounded-full mb-6">
-                  <i className="fas fa-rocket text-2xl text-primary-500"></i>
+              <div className="card p-6">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-50 dark:bg-primary-900/20 rounded-full mb-4">
+                  <i className="fas fa-rocket text-xl text-primary-500"></i>
                 </div>
 
-                <h3 className="heading-3 mb-4">Let's Innovate Together</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                <h3 className="heading-3 mb-3">Let's Innovate Together</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
                   Transforming businesses through cutting-edge AI solutions and Microsoft technologies. Available for consulting, speaking engagements, and strategic partnerships.
                 </p>
 
                 {/* Contact Info */}
-                <div className="space-y-4 mb-6">
+                <div className="space-y-3 mb-4">
                   {contactInfo.map((info, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <i className={`${info.icon} text-primary-500 text-xl w-6`}></i>
@@ -217,8 +217,8 @@ const Contact = () => {
                 </div>
 
                 {/* Social Links */}
-                <div className="pt-6 border-t border-gray-200 dark:border-dark-border">
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Connect with me:</p>
+                <div className="pt-4 border-t border-gray-200 dark:border-dark-border">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Connect with me:</p>
                   <div className="flex gap-3">
                     {socialLinks.map((social, index) => (
                       <a
@@ -237,9 +237,9 @@ const Contact = () => {
               </div>
 
               {/* Quick Stats */}
-              <div className="card p-6 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20">
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Why Work With Me?</h4>
-                <ul className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+              <div className="card p-5 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Why Work With Me?</h4>
+                <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li className="flex items-start gap-2">
                     <i className="fas fa-check-circle text-primary-500 mt-0.5"></i>
                     <span>8+ years Microsoft D365 expertise</span>
