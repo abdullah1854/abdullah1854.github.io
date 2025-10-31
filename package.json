@@ -2,6 +2,7 @@
   "name": "abdullah-sarfaraz-portfolio",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Professional CV website for Abdullah Sarfaraz - Solution Architect & AI Innovation Leader",
   "homepage": "https://abdullah1854.github.io",
   "dependencies": {
