@@ -5,152 +5,213 @@ const Testimonials = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const testimonials = [
+  const achievements = [
     {
-      name: 'Senior Executive',
-      role: 'Director of Operations',
-      company: 'Goldbell Group',
-      image: 'https://ui-avatars.com/api/?name=Director&background=0078D7&color=fff&size=128',
-      quote: 'Abdullah\'s leadership in implementing Microsoft Copilot resulted in a 50% boost in operational efficiency. His strategic approach to ERP transformation has been instrumental in our digital journey.',
-      rating: 5
+      icon: '🏆',
+      title: 'Sparkling Star Award',
+      description: 'Accenture recognition for high-impact D365 solutions',
+      year: '2022'
     },
     {
-      name: 'Project Manager',
-      role: 'Integration Lead',
-      company: 'Accenture',
-      image: 'https://ui-avatars.com/api/?name=PM&background=0078D7&color=fff&size=128',
-      quote: 'Outstanding technical expertise in D365 integrations. Abdullah delivered high-impact solutions using Logic Apps and OData, earning recognition with our Sparkling Star award.',
-      rating: 5
+      icon: '🎖️',
+      title: 'ACE Award',
+      description: 'Excellence in D365 F&O integration projects',
+      year: '2021'
     },
     {
-      name: 'Technology Director',
-      role: 'Head of Digital Transformation',
-      company: 'Enterprise Client',
-      image: 'https://ui-avatars.com/api/?name=TD&background=0078D7&color=fff&size=128',
-      quote: 'Abdullah\'s AI adoption strategies and automation tools significantly reduced our process times while improving data accuracy. A true innovation leader.',
-      rating: 5
+      icon: '📈',
+      title: '50% Efficiency Boost',
+      description: 'Achieved through Copilot implementation at Goldbell Group',
+      year: '2024'
     },
     {
-      name: 'Senior Consultant',
-      role: 'D365 Architect',
-      company: 'OnActuate',
-      image: 'https://ui-avatars.com/api/?name=SC&background=0078D7&color=fff&size=128',
-      quote: 'Led our critical AX 2012 to D365 F&O upgrade with exceptional skill. His optimization support for existing implementations was invaluable.',
-      rating: 5
+      icon: '🚀',
+      title: 'Digital Transformation',
+      description: 'Led multiple AX 2012 to D365 F&O migrations',
+      year: '2021-2024'
+    },
+    {
+      icon: '🤖',
+      title: 'AI Innovation Leader',
+      description: 'Pioneered AI adoption strategies across organizations',
+      year: '2023-Present'
+    },
+    {
+      icon: '👥',
+      title: '100+ Projects',
+      description: 'Successfully delivered across 6+ companies',
+      year: '2016-Present'
     }
   ];
 
   const companyLogos = [
-    { name: 'Goldbell Group', logo: 'https://img.shields.io/badge/Goldbell-Group-0078D7?style=for-the-badge' },
-    { name: 'Accenture', logo: 'https://img.shields.io/badge/Accenture-A100FF?style=for-the-badge&logo=accenture&logoColor=white' },
-    { name: 'Microsoft', logo: 'https://img.shields.io/badge/Microsoft-0078D7?style=for-the-badge&logo=microsoft&logoColor=white' },
-    { name: 'PwC', logo: 'https://img.shields.io/badge/PwC-D04A02?style=for-the-badge' },
-    { name: 'CGI', logo: 'https://img.shields.io/badge/CGI-ED1C24?style=for-the-badge' },
-    { name: 'OnActuate', logo: 'https://img.shields.io/badge/OnActuate-003D7A?style=for-the-badge' }
+    { name: 'Goldbell Group', emoji: '🏢', years: '2022-Present' },
+    { name: 'Accenture', emoji: '💼', years: '2021-2022' },
+    { name: 'PwC', emoji: '🏦', years: '2019' },
+    { name: 'CGI', emoji: '💻', years: '2016-2019' },
+    { name: 'OnActuate', emoji: '🚀', years: '2021' },
+    { name: 'Microsenze', emoji: '📊', years: '2019-2021' }
+  ];
+
+  const skills = [
+    { name: 'D365 F&O', level: 95 },
+    { name: 'AI & Copilot', level: 90 },
+    { name: 'System Integration', level: 92 },
+    { name: 'Digital Transformation', level: 88 }
   ];
 
   return (
-    <section id="testimonials" className="section-padding bg-gray-50 dark:bg-dark-card/30">
+    <section id="testimonials" className="section-padding bg-gradient-to-b from-white to-gray-50 dark:from-dark-bg dark:to-dark-card/30">
       <div className="container-custom">
         <motion.div ref={ref}>
           {/* Section Header */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-12">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="heading-2 mb-3"
+              className="heading-2 mb-4"
             >
-              Client Testimonials & Recognition
+              Achievements & Recognition
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-16 h-1 bg-primary-500 mx-auto rounded-full"
+              className="w-20 h-1 bg-primary-500 mx-auto rounded-full"
             ></motion.div>
             <motion.p
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-3 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+              className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
             >
-              Trusted by leading organizations for ERP transformation and AI innovation
+              Recognized for excellence in ERP transformation and AI innovation
             </motion.p>
           </div>
 
-          {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-2 gap-4 mb-8">
-            {testimonials.map((testimonial, index) => (
+          {/* Achievements Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+          >
+            {achievements.map((achievement, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="card p-5 card-hover"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.3 + index * 0.1, duration: 0.3 }}
+                className="bg-white dark:bg-dark-card rounded-xl p-6 shadow-sm border border-gray-100 dark:border-dark-border hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Quote Icon */}
-                <div className="text-primary-500 mb-3">
-                  <i className="fas fa-quote-left text-2xl opacity-20"></i>
-                </div>
-
-                {/* Quote */}
-                <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                  {testimonial.quote}
-                </p>
-
-                {/* Rating */}
-                <div className="flex gap-1 mb-3">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <i key={i} className="fas fa-star text-yellow-400 text-sm"></i>
-                  ))}
-                </div>
-
-                {/* Author */}
-                <div className="flex items-center gap-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">
-                      {testimonial.name}
+                <div className="flex items-start gap-4">
+                  <div className="text-4xl flex-shrink-0">{achievement.icon}</div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      {achievement.title}
                     </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {testimonial.role}
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      {achievement.description}
                     </p>
-                    <p className="text-xs text-primary-500 font-medium">
-                      {testimonial.company}
-                    </p>
+                    <span className="text-xs text-primary-500 font-medium">
+                      {achievement.year}
+                    </span>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Company Logos */}
+          {/* Skills Progress */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.5, duration: 0.5 }}
+            className="max-w-3xl mx-auto mb-12 bg-white dark:bg-dark-card rounded-xl p-8 shadow-sm border border-gray-100 dark:border-dark-border"
+          >
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 text-center">
+              Core Expertise Areas
+            </h3>
+            <div className="space-y-4">
+              {skills.map((skill, index) => (
+                <div key={index}>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      {skill.name}
+                    </span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      {skill.level}%
+                    </span>
+                  </div>
+                  <div className="w-full bg-gray-200 dark:bg-dark-border rounded-full h-2">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={isInView ? { width: `${skill.level}%` } : {}}
+                      transition={{ delay: 0.6 + index * 0.1, duration: 1, ease: "easeOut" }}
+                      className="bg-primary-500 h-2 rounded-full"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Company Experience Timeline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.7, duration: 0.5 }}
             className="text-center"
           >
-            <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
-              Trusted by Industry Leaders
+            <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+              Professional Journey
             </h3>
-            <div className="flex flex-wrap justify-center items-center gap-4">
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
               {companyLogos.map((company, index) => (
-                <motion.img
+                <motion.div
                   key={index}
-                  src={company.logo}
-                  alt={company.name}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: 0.6 + index * 0.1, duration: 0.3 }}
-                  className="h-8 opacity-70 hover:opacity-100 transition-opacity"
-                />
+                  transition={{ delay: 0.8 + index * 0.05, duration: 0.3 }}
+                  className="group"
+                >
+                  <div className="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-dark-card transition-colors">
+                    <span className="text-3xl">{company.emoji}</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      {company.name}
+                    </span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">
+                      {company.years}
+                    </span>
+                  </div>
+                </motion.div>
               ))}
+            </div>
+          </motion.div>
+
+          {/* Key Metrics */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.9, duration: 0.5 }}
+            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
+          >
+            <div className="text-center p-6 bg-primary-50 dark:bg-primary-900/10 rounded-xl">
+              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-1">8+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+            </div>
+            <div className="text-center p-6 bg-primary-50 dark:bg-primary-900/10 rounded-xl">
+              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-1">100+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Projects Delivered</div>
+            </div>
+            <div className="text-center p-6 bg-primary-50 dark:bg-primary-900/10 rounded-xl">
+              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-1">6+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Companies</div>
+            </div>
+            <div className="text-center p-6 bg-primary-50 dark:bg-primary-900/10 rounded-xl">
+              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-1">2</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Excellence Awards</div>
             </div>
           </motion.div>
         </motion.div>
@@ -160,4 +221,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
